@@ -1,0 +1,62 @@
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+a{
+    text-decoration: none;
+    color: #2d3436;
+}
+.clearfix{
+    clear: both;
+}
+.header{
+    width: 100%;
+    height: 100px;
+    background-color: #30336b;
+    text-align: center;
+    line-height: 100px;
+    font-family: "Tahoma";
+    color: #fff;
+    margin-bottom: 10px;
+}
+.container{
+    display: flex;
+    margin-left: 15px;
+    margin-right: 15px;
+    /*border: 1px solid black;*/
+}
+.DirectoryImage {
+    width: 72px;
+    height: 72px;
+    background: transparent url("../images/folder_icon.png") no-repeat scroll 0% 0%;
+}
+.FileImage{
+    width: 72px;
+    height: 72px;
+    background: transparent url("../images/file_icon.png") no-repeat scroll 0% 0%;
+}
+.DirectoryTitle{
+    align-content: center;
+    text-align: center;
+    font-family: Tahoma;
+    font-size: 13px;
+    overflow: hidden;
+}
+.FileTitle{
+    align-content: center;
+    text-align: center;
+    font-family: Tahoma;
+    font-size: 13px;
+}
+.IconMask{
+    padding: 10px;
+    width: 100px;
+    overflow: hidden;
+    cursor: pointer;
+    margin: 7px;
+    border-radius: 10px;
+}
+.IconMask:hover{
+    background-color: #c7ecee;
+}
