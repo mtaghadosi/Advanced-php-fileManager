@@ -11,32 +11,39 @@
 <body>
 <header class="header">
     Welcome to my personal file manager
-
 </header>
 
 <div class="container">
     <?php
+    $ParentDir = '';
     function DiscoverParentDirectory()
     {
-        $ParentDir = '';
+        $p_dir = '';
         $currentDir = $_GET['dir'];
         $splited = explode('/', $currentDir);
         array_pop($splited);
+
         foreach ($splited as $i) {
-            $ParentDir .= $i;
+            $p_dir .= $i;
+            $p_dir .= '/';
         }
-        return $ParentDir;
+        if(substr($p_dir,-1) == "/")
+        {
+            $p_dir = substr($p_dir,0,-1);
+        }
+//        echo 'Parent DIR is: ';
+        return $p_dir;
     }
 
     if (isset($_GET['dir']) && !empty($_GET['dir'])) {
         $CurrentDir = $_GET['dir'] . '/';
-        DiscoverParentDirectory();
+        $ParentDir = DiscoverParentDirectory();
     } else {
         $CurrentDir = 'myComputer/';
     }
     $FilesList = glob("$CurrentDir*");
     echo "<div class='clearfix'></div>";
-    echo "<div class='IconMask'><a href='?dir='><img src='images/parent_icon.png'></a></div>";
+    echo "<div class='IconMask'><a href='?dir=$ParentDir'><img src='images/parent_icon.png'></a></div>";
 
     foreach ($FilesList as $CurrentFile) {
         if (is_dir($CurrentFile)) {
